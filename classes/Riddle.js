@@ -5,6 +5,7 @@ class Riddle {
         this.name = riddle.name
         this.taskDescription = riddle.taskDescription
         this.correctAnswer = riddle.correctAnswer
+        this.difficulty = riddle.difficulty 
     }
     ask(prompt) {
 

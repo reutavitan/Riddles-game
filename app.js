@@ -9,7 +9,13 @@ let answer = prompt("Enter your name: ");
 const player = new Player(answer);
 
 
-riddles.forEach(riddle => {
+let difficulty = prompt("Choose difficulty:\n1. Easy\n2. Medium\n3. Hard");
+const choices = ["easy", "medium", "hard"];
+difficulty = choices[Number(difficulty) - 1];
+const filteredRiddles = riddles.filter(riddle => riddle.difficulty === difficulty)
+
+
+filteredRiddles.forEach(riddle => {
     let startTime = Date.now()
     const rid = new Riddle(riddle);
     rid.ask(prompt);
