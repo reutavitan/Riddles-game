@@ -1,3 +1,23 @@
+import PromptSync from 'prompt-sync';
+const prompt = PromptSync();
+import Riddle from './classes/Riddle.js';
+import Player from './classes/Player.js';
+import riddles from './riddles/index.js';
+
+console.log("Welcome to the Riddle Game!");
+let answer = prompt("Enter your name: ");
+const player = new Player(answer);
+
+
+riddles.forEach(riddle => {
+    let startTime = Date.now()
+    const rid = new Riddle(riddle);
+    rid.ask(prompt);
+    let endTime = Date.now()
+    player.recordTime(startTime,endTime);
+
+});
+player.showStats();
 // Entry point of the game. Run it with: node app.js
 //
 // This file should:
